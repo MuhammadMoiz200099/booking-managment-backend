@@ -7,7 +7,6 @@ const l = pino({
   level: process.env.LOG_LEVEL,
 });
 
-module.exports = l;
 
 const transport = new winston.transports.DailyRotateFile({
   filename: './logs/crystal-%DATE%.log',
@@ -16,8 +15,10 @@ const transport = new winston.transports.DailyRotateFile({
   maxFiles: '2d'
 });
 
-exports.logger = winston.createLogger({
+const logger = winston.createLogger({
   transports: [
     transport
   ]
 });
+
+module.exports = { l, logger  };

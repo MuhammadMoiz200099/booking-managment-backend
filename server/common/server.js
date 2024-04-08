@@ -4,7 +4,7 @@ const http = require('http');
 const os = require('os');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const l = require('./logger');
+const { l } = require('./logger');
 
 const app = express();
 
@@ -16,7 +16,7 @@ const corsOptions = {
     allowedHeaders: 'Content-Type, Authorization, Credentials'
 };
 
-class ExpressServer {
+class Server {
     constructor() {
         const root = path.normalize(__dirname + '/../..');
         app.use(express.json({ limit: process.env.REQUEST_LIMIT || '100kb' }));
@@ -52,4 +52,4 @@ class ExpressServer {
     }
 }
 
-module.exports = ExpressServer;
+module.exports = Server;

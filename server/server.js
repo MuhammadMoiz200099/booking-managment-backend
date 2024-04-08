@@ -1,6 +1,6 @@
 require('./common/env');
-const Server = require('./common/server').default;
-const routes = require('./routes').default;
+const Server = require('./common/server');
+const routes = require('./routes');
 const { connectDB } = require('./common/database');
 
 connectDB()

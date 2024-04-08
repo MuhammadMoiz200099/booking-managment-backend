@@ -1,0 +1,13 @@
+require('./common/env');
+const Server = require('./common/server').default;
+const routes = require('./routes').default;
+const { connectDB } = require('./common/database');
+
+connectDB()
+  .then(async () => {
+
+  }, () => { });
+
+module.exports = new Server()
+  .router(routes)
+  .listen(parseInt(process.env.PORT, 10));
